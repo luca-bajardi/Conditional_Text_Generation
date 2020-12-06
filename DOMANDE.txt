@@ -1,0 +1,6 @@
+
+1) Ok, abbiamo il nostro modello CTRL pre_trained funzionante. Aggiungiamo al training il nostro dataset 70% del dataset COCO 2015 con l'idea di testare il rimanente 30%. Come facciamo ad introdurre input aggiuntivi per "condizionare" l'output? Il condizionamento già avviene semplicemente introducendo il dataset on top al training iniziale, bisogna capire come introdurre e.g felicità come control code. Va fatto manualmente toccando l'internals del modello? Va fatto aggiustando i parametri del modello pretrained? 
+
+2) Dopo aver fatto punto_1, che metrica possiamo valutare per testare il modello? Ad esempio se condizionassimo con l'emozione: felicità, si potrebbe usare un sentiment analysis per "valutare" i due output: uno del modello non condizionato e uno del modello condizionato per vedere se effettivamente siamo riusciti ad avere una predizione più precisa. Quindi oltre alle metriche 1) "BLEU", 2) SELF-BLEU e 3) POS-BLEU potremmo definire un'altra metrica del tipo: d_4(out_std, out_felicità) = sentiment_analysis(out_felicità) - sentiment_analysis(out_std). -2 < d_4 < 2, più grande meglio (a parità delle metriche 1,2,3) perchè perché abbiamo reso l'output felice.
+
+Ha senso tutto questo???
