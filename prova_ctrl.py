@@ -33,7 +33,7 @@ seq = "Legal the president is"
 inputs = tokenizer(seq)
 inputs_ids = torch.tensor([inputs["input_ids"]],dtype=torch.long)
 # encode context the generation is conditioned on
-outputs = model.generate(inputs_ids,do_sample=False)
+outputs = model.generate(inputs_ids)
 outputs_id = outputs[0]
 for i in range(len(outputs_id)):
     print(tokenizer.decode(outputs_id[i].item()))
