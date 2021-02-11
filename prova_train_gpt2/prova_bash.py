@@ -1,1 +1,0 @@
-print("stampo da python")
