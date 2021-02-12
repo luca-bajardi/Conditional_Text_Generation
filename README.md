@@ -29,7 +29,7 @@ Fine-tuning can be used to augment existing control codes or add new control cod
 7. Use Wikipedia articles and Reddit comments
 
 ### Step 1 - Create the dataset
-
+Reddit and Wikipedia sentences were accessed from available data dumps using Kaggle and pushshift APIs, while COCO captions were taken diretly from the website [COCO website](https://cocodataset.org/#captions-2015).
 
 
 ### Step 2 - Split data
@@ -74,7 +74,7 @@ python generate_from_prompts.py
 
 ### Step 6 - Evaluate with metrics
 
-We use the file `metrics.py` to evaluate the generated text.
+We use the file `metrics.py` to evaluate the generated text. The file contains ready to use functions to calculate BLEU, SELF-BLEU and POS-BLEU metrics. On top of that, a text classifier is provided. 
 
 ```
 python metrics.py
