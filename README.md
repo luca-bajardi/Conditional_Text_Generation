@@ -55,7 +55,7 @@ It has three arguments: `text_file` which specifies the name of the file to conv
 Simply run the script `training.py` 
 
 ```
-python training.py --model_dir seqlen256_v1.ckpt/ --iterations <number_of_iterations>
+python training.py --model_dir <model_directory> --iterations <number_of_iterations>
 ```
 
 The script picks up all TFRecords in the current folder and fine-tunes the model provided in the `--model_dir` flag. 
@@ -69,8 +69,9 @@ We chose the model with 500 iterations.
 We use the file `generate_from_prompts.py` to generate the remaining parts of the captions.
 
 ```
-python generate_from_prompts.py
+python generate_from_prompts.py --model_dir  <model_directory> --prompts <prompts_file> --control_code caption
 ```
+This script is a modified version of the `generation.py` script from Salesforce's repository. It takes as input a file containing one prompt per line, generates a complete caption from each prompt and saves the output in a `output.txt` file. The models we trained are able to generate COCO-style captions or formal/informal written captions. For more insights, refer to the report.
 
 ### Step 6 - Evaluate with metrics
 
